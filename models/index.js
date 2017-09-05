@@ -1,8 +1,5 @@
 const
   conn = require('./conn'),
-  // Order = require('./Order'),
-  // LineItem = require('./LineItem'),
-  // Product = require('./Product')
   User = require('./User'),
   Office = require('./Office')
 
@@ -12,16 +9,13 @@ Office.hasMany(User)
 const sync = () => conn.sync({ force: true })
 
 const seed = () => {
-  return require('./seed')(User)
+  return require('./seed')(User, Office)
 }
 
 module.exports = {
   sync,
   seed,
   models: {
-    // Order,
-    // LineItem,
-    // Product
     User,
     Office
   }

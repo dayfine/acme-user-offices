@@ -6,13 +6,14 @@ const
 router
   .use(bodyParser.urlencoded({extended: false}))
 
-  .get('users', function (req, res, next) {
-    User.findAll({ order: 'id', include: [ Office ] })
+  .get('/', function (req, res, next) {
+    console.log('hit me')
+    User.findAll({ order: ['id'], include: [ Office ] })
     .then(users => res.send(users))
     .catch(next)
   })
 
-  .delete('users/:id', function (req, res, next) {
+  .delete('/:id', function (req, res, next) {
     let id = req.params.id
     User.find({ where: {id: id} })
     .then(user => user.destroy())
@@ -20,7 +21,7 @@ router
     .catch(next)
   })
 
-  .put('users/:id', function (req, res, next) {
+  .put('/:id', function (req, res, next) {
     let id = req.params.id
     User.find({ where: {id: id} })
     .then(user => user.update(req.body))
@@ -28,7 +29,7 @@ router
     .catch(next)
   })
 
-  .post('users', function (req, res, next) {
+  .post('/', function (req, res, next) {
     User.create(req.body)
     .then(user => res.send(user))
     .catch(next)

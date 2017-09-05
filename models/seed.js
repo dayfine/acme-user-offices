@@ -1,4 +1,4 @@
-module.exports = (User) => {
+module.exports = (User, Office) => {
   return Promise.all([
     User.create({
       name: 'Nate River',
@@ -12,7 +12,7 @@ module.exports = (User) => {
         phone: '646-867-2613',
         location: [40.756405, -73.978249]
       }
-    }),
+    }, { include: [Office] }),
     User.create({
       name: 'Mihael Keehl',
       title: 'Director',
@@ -25,7 +25,7 @@ module.exports = (User) => {
         phone: '855-593-8765',
         location: [40.724904, -74.016370]
       }
-    }),
+    }, { include: [Office] }),
     User.create({
       name: 'L Lawliet',
       title: 'Managing Director',
@@ -38,7 +38,7 @@ module.exports = (User) => {
         phone: '855-593-9675',
         location: [40.723739, -74.008115]
       }
-    })
+    }, { include: [Office] })
   ])
   .then(users => users)
 }

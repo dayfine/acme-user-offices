@@ -3,11 +3,37 @@
 {% block content %}
 
   <div class='container'>
+  <div class='row content'>
     <div class='col-xs-12 col-md-6'>
+      <div class = 'panel panel-success'>
+        <div class ='panel-heading'><h4>Add New User</h4></div>
+        <div class ='panel-body user-form'></div>
+      </div>
+      <div class = 'panel panel-info'>
+        <div class ='panel-heading'><h4>User List</h4></div>
+        <ul class ='panel-body user-list list-unstyled'></ul>
+      </div>
     </div>
 
     <div class='col-xs-12 col-md-6'>
+      <div class = 'panel panel-info'>
+        <div class ='panel-heading'><h4>Add New Office</h4></div>
+        <div class ='panel-body user-form'></div>
+      </div>
+      <div class = 'panel panel-success'>
+        <div class ='panel-heading'><h4>Office List</h4></div>
+        <ul class ='panel-body office-list list-unstyled'></ul>
+      </div>
     </div>
   </div>
+  </div>
 
+  <script src='https://code.jquery.com/jquery-3.2.1.min.js'></script>
+  <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'></script>
+<!--     <script src="https://maps.googleapis.com/maps/api/js?key={{ GOOGLE_API_KEY }}&sensor=true"></script> -->
+  <script src='public/js/OfficeForm.js'></script>
+  <script src='public/js/OfficesList.js'></script>
+  <script src='public/js/UserForm.js'></script>
+  <script src='public/js/UsersList.js'></script>
+  <script src='public/js/app.js'></script>
 {% endblock %}
