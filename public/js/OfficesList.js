@@ -4,7 +4,7 @@ function createOfficeList (offices) {
         <div class='row h2'>
           <div class='col-md-10'>${office.name}</div>
           <div class='col-md-2'>
-            <div data-id='${office.id}' class='btn btn-warning btn-sm'>x</div>
+            <button data-id='${office.id}' class='btn btn-warning btn-sm'>x</button>
           </div>
         </div>
 
@@ -15,18 +15,21 @@ function createOfficeList (offices) {
     `)
 }
 
-function deletOffice (id) {
-  $.get('/offices')
-    .then(function (offices) {
-      let officeList = $('.office-list')
-      createOfficeList(offices).forEach(el => officeList.append(el))
-    })
+function deleteOffice (id) {
+  $.ajax({
+    url: `/offices/${id}`,
+    type: 'DELETE',
+    success: function (id) {
+      renderOfficeList()
+    }
+  })
 }
 
 function renderOfficeList () {
   $.get('/offices')
     .then(function (offices) {
       let officeList = $('.office-list')
+      officeList.empty()
       createOfficeList(offices).forEach(el => officeList.append(el))
     })
 }

@@ -6,10 +6,10 @@ function createUserList (users) {
           ${user.name}
         </div>
         <div class='col-md-6'>
-          <button class='btn btn-success btn-sm'>${user.title}</button>
+          <div class='btn btn-success btn-sm'>${user.title}</div>
         </div>
         <div class='col-md-2'>
-          <div data-id='${user.id}' class='btn btn-warning btn-sm pull-right'>x</div>
+          <button data-id='${user.id}' class='btn btn-warning btn-sm pull-right'>x</button>
         </div>
       </div>
       <div class='row'>
@@ -21,10 +21,21 @@ function createUserList (users) {
     `)
 }
 
+function deleteUser (id) {
+  $.ajax({
+    url: `/users/${id}`,
+    type: 'DELETE',
+    success: function (id) {
+      renderUserList()
+    }
+  })
+}
+
 function renderUserList () {
   $.get('/users')
     .then(function (users) {
       let userList = $('.user-list')
+      userList.empty()
       createUserList(users).forEach(el => userList.append(el))
     })
 }
