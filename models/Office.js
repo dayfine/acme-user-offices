@@ -22,6 +22,12 @@ const
     location: {
       type: conn.Sequelize.ARRAY(conn.Sequelize.FLOAT)
     }
+  }, {
+    getterMethods: {
+      fulladdress () {
+        return `${this.address}, ${this.city}, ${this.state} ${this.zip}`
+      }
+    }
   })
 
 module.exports = Office

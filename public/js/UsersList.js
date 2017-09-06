@@ -13,8 +13,11 @@ function createUserList (users) {
         </div>
       </div>
       <div class='row'>
-        <div class='col-md-12'>
-          <select class='col-md-12'></select>
+        <div class='col-md-4'>
+          <label class='pull-right' for='userOffice'>Working at</label>
+        </div>
+        <div class='col-md-8'>
+          <select class='custom-select col-md-12 userOffice' name='userOffice'></select>
         </div>
       </div>
       </li>
@@ -29,6 +32,9 @@ function deleteUser (id) {
       renderUserList()
     }
   })
+}
+
+function updateUserOffice (id) {
 }
 
 function renderUserList () {
