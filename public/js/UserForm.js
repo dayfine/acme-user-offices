@@ -2,12 +2,12 @@ function renderUserForm () {
   let form = `
   <div>
     <div class='row h5'>
-      <div class='col-md-12'>
-      <input class='col-md-12' id ="username" name="username" type="text"/>
+      <div class='col-xs-12'>
+      <input class='col-xs-12' id ="username" name="username" type="text"/>
       </div>
     </div>
     <div class='row h5'>
-    <div class='col-md-12'>
+    <div class='col-xs-12'>
       <label for='title'>Title</label>
       <select class='custom-select' id='title' name='title'>
          <option>Choose...</option>

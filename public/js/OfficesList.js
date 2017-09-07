@@ -2,8 +2,8 @@ function createOfficeList (offices) {
   return offices.map(office => `
       <li class='list-group-item'>
         <div class='row h2'>
-          <div class='col-md-10'>${office.name}</div>
-          <div class='col-md-2'>
+          <div class='col-xs-10'>${office.name}</div>
+          <div class='col-xs-2'>
             <button data-id='${office.id}' class='btn btn-warning btn-sm'>x</button>
           </div>
         </div>
@@ -32,7 +32,7 @@ function renderOfficeList () {
       officeList.empty()
       createOfficeList(offices).forEach(el => { officeList.append(el) })
       offices.forEach(office => {
-        let option = `<option value='${office.fulladdress}'>${office.fulladdress}</option>`
+        let option = `<option value='${office.id}'>${office.fulladdress}</option>`
         $('.userOffice').each(function () { $(this).append(option) })
       })
     })

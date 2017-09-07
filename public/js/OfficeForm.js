@@ -2,21 +2,21 @@ function renderOfficeForm () {
   let form = `
   <div>
     <div class='row h5'>
-      <div class='col-md-2'>
+      <div class='col-xs-2'>
         <label for='location'>Location</label>
       </div>
-      <div class='col-md-10'>
-        <input class='col-md-12' id ="location" name="location" type="text"/>
+      <div class='col-xs-10'>
+        <input class='col-xs-12' id ="location" name="location" type="text"/>
       </div>
     </div>
     <div class='row h5'>
-      <div class='col-md-2'>
+      <div class='col-xs-2'>
         <label for='officename'>Name</label>
       </div>
-      <div class='col-md-7'>
-        <input class='col-md-12' id ="officename" name="officename" type="text"/>
+      <div class='col-xs-7'>
+        <input class='col-xs-12' id ="officename" name="officename" type="text"/>
       </div>
-      <div class='col-md-3'>
+      <div class='col-xs-3'>
         <button class='btn btn-primary btn-sm pull-right'>Submit</button>
       </div>
     </div>

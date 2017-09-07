@@ -12,4 +12,27 @@ $(function () {
     let id = $(this).data('id')
     deleteOffice(id)
   })
+  $('.user-list').on('change', 'select', function (event) {
+    let userId = $(this).data('id'), officeId = $(this).val()
+    updateUserOffice(userId, officeId)
+  })
+
+  /**
+   * TO DOs
+   * - get autocomplete and office form to work
+   * - make option selected for user's office
+   * - look into the problem where options disappear
+   *
+   */
+
+  bindAutoComp()
+  function bindAutoComp () {
+    let
+      input = document.getElementById('location'),
+      autocomplete = new google.maps.places.Autocomplete(input)
+
+    autocomplete.addListener('place_changed', function () {
+      var place = autocomplete.getPlace()
+    })
+  }
 })

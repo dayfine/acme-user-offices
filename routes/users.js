@@ -7,7 +7,6 @@ router
   .use(bodyParser.urlencoded({extended: false}))
 
   .get('/', function (req, res, next) {
-    console.log('hit me')
     User.findAll({ order: ['id'], include: [ Office ] })
     .then(users => res.send(users))
     .catch(next)
