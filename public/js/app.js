@@ -24,15 +24,4 @@ $(function () {
    * - look into the problem where options disappear
    *
    */
-
-  bindAutoComp()
-  function bindAutoComp () {
-    let
-      input = document.getElementById('location'),
-      autocomplete = new google.maps.places.Autocomplete(input)
-
-    autocomplete.addListener('place_changed', function () {
-      var place = autocomplete.getPlace()
-    })
-  }
 })

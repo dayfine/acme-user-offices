@@ -31,6 +31,7 @@ function renderOfficeList () {
       let officeList = $('.office-list')
       officeList.empty()
       createOfficeList(offices).forEach(el => { officeList.append(el) })
+      $('.userOffice').empty()
       offices.forEach(office => {
         let option = `<option value='${office.id}'>${office.fulladdress}</option>`
         $('.userOffice').each(function () { $(this).append(option) })

@@ -14,12 +14,6 @@ nunjucks.configure('views', {noCache: true})
 app.use(morgan('dev'))
 app.use(require('method-override')('_method'))
 app.use('/public', express.static(path.join(__dirname, 'public')))
-app.use('/users', require('./routes/users'))
-app.use('/offices', require('./routes/offices'))
-
-app.get('/', function (req, res, next) {
-  res.render('index')
-})
 
 let config = process.env
 try {
@@ -30,10 +24,15 @@ try {
 
 app.use(function (req, res, next) {
   res.locals.GOOGLE_API_KEY = config.GOOGLE_API_KEY
-  let err = new Error('Not Found')
-  err.status = 404
-  next(err)
+  next()
 })
+
+app.get('/', function (req, res, next) {
+  res.render('index')
+})
+
+app.use('/users', require('./routes/users'))
+app.use('/offices', require('./routes/offices'))
 
 app.use(function (err, req, res, next) {
   res.status(err.status || 500)
